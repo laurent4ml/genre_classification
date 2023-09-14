@@ -55,7 +55,6 @@ def go(config: DictConfig):
 
     if "check_data" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the check_data step
         _ = mlflow.run(
             os.path.join(root_path, "check_data"),
             "main",
@@ -68,7 +67,6 @@ def go(config: DictConfig):
 
     if "segregate" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the segregate step
         _ = mlflow.run(
             os.path.join(root_path, "segregate"),
             "main",
@@ -90,7 +88,6 @@ def go(config: DictConfig):
         with open(model_config, "w+") as fp:
             fp.write(OmegaConf.to_yaml(config["random_forest_pipeline"]))
 
-        ## YOUR CODE HERE: call the random_forest step
         _ = mlflow.run(
             os.path.join(root_path, "random_forest"),
             "main",
@@ -106,7 +103,6 @@ def go(config: DictConfig):
 
     if "evaluate" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the evaluate step
         _ = mlflow.run(
             os.path.join(root_path, "evaluate"),
             "main",
